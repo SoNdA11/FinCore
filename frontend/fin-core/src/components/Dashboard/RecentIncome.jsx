@@ -1,3 +1,6 @@
+// Este componente React exibe uma lista das fontes de renda mais recentes do usuário no dashboard.
+// Ele permite uma visualização rápida dos últimos ganhos.
+
 import React from "react";
 import { LuArrowRight } from "react-icons/lu";
 import moment from "moment";

@@ -1,3 +1,6 @@
+// Este arquivo contém a lógica de controle para buscar e agregar dados para o dashboard do usuário,
+// como saldo total, renda total, despesas totais, transações recentes, etc.
+
 const Income = require("../models/Income");
 const Expense = require("../models/Expense");
 const { Types } = require("mongoose");

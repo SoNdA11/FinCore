@@ -1,3 +1,7 @@
+// Este componente React renderiza o menu de navegação lateral para o dashboard,
+// exibindo informações do usuário (nome, foto) e links para diferentes seções
+// como Dashboard, Income e Expense, além da opção de Logout.
+
 import React, { useContext } from 'react';
 import { SIDE_MENU_DATA } from '../../utils/data';
 import { UserContext } from '../../context/UserContext';
@@ -40,8 +44,6 @@ const SideMenu = ({ activeMenu }) => {
                     style="text-xl"
                 />
             )}
-
-
 
             <h5 className="text-gray-950 font-medium leading-6">
 

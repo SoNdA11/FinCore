@@ -1,14 +1,15 @@
-import React, { useRef, useState, useEffect } from 'react'; // Importe useEffect
+// Este componente React permite ao usuário selecionar, pré-visualizar,
+// fazer upload e remover sua imagem de perfil.
+
+import React, { useRef, useState, useEffect } from 'react'; 
 import { LuUser, LuUpload, LuTrash } from "react-icons/lu";
 
-// Prop `existingImageUrl` será o `user?.profileImageUrl` que vem do UserContext
-// Prop `onImageSelect` será a função para passar o File para o componente pai (SignUp)
 const ProfilePhotoSelector = ({ existingImageUrl, onImageSelect }) => {
+
     const inputRef = useRef(null);
-    // previewUrl agora gerenciará tanto o blob temporário quanto o URL existente
+
     const [previewUrl, setPreviewUrl] = useState(existingImageUrl || null);
 
-    // Efeito para atualizar a prévia se existingImageUrl mudar (ex: login de outro user)
     useEffect(() => {
         setPreviewUrl(existingImageUrl);
     }, [existingImageUrl]);
@@ -16,21 +17,20 @@ const ProfilePhotoSelector = ({ existingImageUrl, onImageSelect }) => {
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
-            // Passe o File para a função de callback no componente pai
+
             onImageSelect(file);
 
-            // Gere preview URL temporário para exibição imediata
             const tempPreview = URL.createObjectURL(file);
             setPreviewUrl(tempPreview);
         }
     };
 
     const handleRemoveImage = () => {
-        // Informe o componente pai que a imagem foi removida (passando null)
+
         onImageSelect(null);
         setPreviewUrl(null);
         if (inputRef.current) {
-            inputRef.current.value = ''; // Limpa o input file
+            inputRef.current.value = '';
         }
     };
 
@@ -48,7 +48,7 @@ const ProfilePhotoSelector = ({ existingImageUrl, onImageSelect }) => {
                 className="hidden"
             />
 
-            {!previewUrl ? ( // Use previewUrl para decidir se exibe o placeholder ou a imagem
+            {!previewUrl ? (
                 <div className="w-20 h-20 flex items-center justify-center bg-purple-100 rounded-full relative ">
                     <LuUser className="text-4xl text-primary" />
                     <button
@@ -63,7 +63,7 @@ const ProfilePhotoSelector = ({ existingImageUrl, onImageSelect }) => {
             ) : (
                 <div className="relative">
                     <img
-                        src={previewUrl} // Use previewUrl aqui
+                        src={previewUrl}
                         alt="profile photo"
                         className="w-20 h-20 rounded-full object-cover"
                     />

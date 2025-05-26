@@ -1,3 +1,7 @@
+// Este arquivo define as rotas da API relacionadas à autenticação de usuários,
+// incluindo registro, login, obtenção de informações do usuário e upload de imagem de perfil,
+// e as associa aos seus respectivos controladores.
+
 const express = require("express");
 const { protect } = require("../middleware/authMiddleware");
 

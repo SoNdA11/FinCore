@@ -1,3 +1,6 @@
+// Este componente React define o estilo e o conteúdo de um tooltip personalizado
+// que aparece ao interagir com os elementos dos gráficos, exibindo informações detalhadas.
+
 import React from 'react'
 
 const CustomTooltip = ({ active, payload }) => {

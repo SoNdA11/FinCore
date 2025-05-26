@@ -1,3 +1,7 @@
+// Este componente de layout React define a estrutura principal para as páginas do dashboard,
+// incluindo a barra de navegação superior (Navbar) e o menu lateral (SideMenu),
+// garantindo uma experiência de usuário consistente.
+
 import React, { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
 import Navbar from './Navbar';

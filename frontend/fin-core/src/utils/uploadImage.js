@@ -1,3 +1,6 @@
+// Este arquivo contém uma função utilitária assíncrona para fazer o upload de arquivos de imagem para o backend.
+// Ele utiliza FormData para enviar os dados da imagem.
+
 import { API_PATHS } from './apiPaths';
 import axiosInstance from './axiosInstance';
 

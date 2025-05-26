@@ -1,3 +1,6 @@
+// Este componente React oferece uma visão geral financeira em formato de gráfico de pizza,
+// destacando o saldo total, a renda total e as despesas totais do usuário.
+
 import React from 'react';
 import CustomPieChart from '../Charts/CustomPieChart';
 

@@ -1,3 +1,6 @@
+// Este arquivo define o esquema (Schema) do Mongoose para o modelo de Renda no banco de dados.
+// Ele especifica os campos e seus tipos para as transações de renda.
+
 const mongoose = require("mongoose");
 
 const IncomeSchema = new mongoose.Schema({

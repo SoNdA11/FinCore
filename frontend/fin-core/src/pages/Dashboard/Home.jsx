@@ -1,3 +1,6 @@
+// Este componente React exibe a página inicial do dashboard,
+// fornecendo uma visão geral financeira com cartões de informação, gráficos e transações recentes.
+
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import { useUserAuth } from "../../hooks/useUserAuth";

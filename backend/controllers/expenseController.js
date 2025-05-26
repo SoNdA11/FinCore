@@ -1,3 +1,6 @@
+// Este arquivo contém a lógica de controle para gerenciar despesas,
+// incluindo adicionar, obter todas, excluir e fazer download em formato Excel.
+
 const xlsx = require('xlsx');
 const Expense = require("../models/Expense");
 

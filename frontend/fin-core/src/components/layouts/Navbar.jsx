@@ -1,3 +1,6 @@
+// Este componente React renderiza a barra de navegação superior do aplicativo,
+// incluindo o título "FinCore" e um botão para alternar a visibilidade do menu lateral em telas menores.
+
 import React, { useState } from "react";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 import SideMenu from "./SideMenu";

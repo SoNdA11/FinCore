@@ -1,3 +1,6 @@
+// Este arquivo contém o middleware de autenticação que verifica e decodifica tokens JWT
+// para proteger rotas da API, garantindo que apenas usuários autenticados possam acessá-las.
+
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 

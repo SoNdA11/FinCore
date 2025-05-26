@@ -1,3 +1,6 @@
+// Este arquivo centraliza a definição de todos os caminhos e URLs para os endpoints da API do backend.
+// Isso ajuda na organização e manutenção das requisições HTTP.
+
 export const BASE_URL = "http://localhost:8000";
 
 export const API_PATHS = {

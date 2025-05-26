@@ -1,5 +1,5 @@
-// VERSÃO COM BUG DAS HORAS - MAS TA ORGANIZADO
-
+// Este componente React exibe uma lista detalhada de todas as despesas registradas pelo usuário.
+// Ele também permite a exclusão e o download dos dados em formato Excel.
 
 import React from 'react'
 import { LuDownload } from 'react-icons/lu';

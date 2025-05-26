@@ -1,3 +1,6 @@
+// Este componente React reutilizável cria um campo de entrada de texto padronizado.
+// Ele inclui funcionalidade para alternar a visibilidade do texto para campos de senha.
+
 import React, { useState } from 'react';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 

@@ -1,3 +1,7 @@
+// Este é um hook customizado do React para verificar o status de autenticação do usuário.
+// Ele tenta buscar as informações do usuário logado e, se não for bem-sucedido ou o token for inválido,
+// desloga o usuário e o redireciona para a página de login.
+
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";

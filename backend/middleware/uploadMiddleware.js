@@ -1,3 +1,7 @@
+// Este arquivo configura o middleware Multer para o upload de arquivos,
+// especificamente imagens de perfil, definindo o destino e o nome do arquivo,
+// além de filtrar os tipos de arquivo permitidos.
+
 const multer = require("multer");
 
 // Configure storage

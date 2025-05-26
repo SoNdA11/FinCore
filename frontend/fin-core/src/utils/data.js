@@ -1,3 +1,6 @@
+// Este arquivo contém dados estáticos e configurações, como a estrutura do menu lateral do dashboard,
+// incluindo rótulos, ícones e caminhos para as páginas.
+
 import {
     LuLayoutDashboard, 
     LuHandCoins,

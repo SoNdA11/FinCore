@@ -1,3 +1,6 @@
+// Este componente React exibe um avatar de caractere com base nas iniciais do nome do usuário.
+// Ele é usado para representar o usuário visualmente.
+
 import React from "react";
 import { getInitials } from "../../utils/helper"; 
 

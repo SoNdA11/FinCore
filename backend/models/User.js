@@ -1,3 +1,7 @@
+// Este arquivo define o esquema (Schema) do Mongoose para o modelo de Usuário no banco de dados.
+// Ele inclui campos como nome completo, e-mail, senha (com hash) e URL da imagem de perfil,
+// além de métodos para hash e comparação de senhas.
+
 const mongoose = require("mongoose");
 
 const bcrypt = require("bcryptjs");

@@ -1,3 +1,6 @@
+// Este componente React implementa a página de cadastro para novos usuários,
+// permitindo que eles criem uma conta com seus dados e uma imagem de perfil.
+
 import React, { useContext, useState } from 'react';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import { useNavigate, Link } from 'react-router-dom';

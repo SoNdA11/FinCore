@@ -1,3 +1,6 @@
+// Este componente React exibe uma lista das despesas mais recentes do usuário no dashboard.
+// Ele permite ver as últimas transações de despesas de forma rápida.
+
 import React from "react";
 import moment from "moment";
 import { LuArrowRight } from "react-icons/lu";

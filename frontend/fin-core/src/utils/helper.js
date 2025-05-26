@@ -1,3 +1,6 @@
+// Este arquivo contém uma coleção de funções utilitárias que auxiliam em diversas tarefas,
+// como validação de e-mail, obtenção de iniciais, formatação de números e preparação de dados para gráficos.
+
 import moment from "moment";
 
 export const validateEmail = (email) => {

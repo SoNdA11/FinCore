@@ -1,3 +1,7 @@
+// Este arquivo configura uma instância personalizada do Axios.
+// Ele inclui um interceptador de requisições para adicionar o token JWT
+// e um interceptador de respostas para tratar erros de autenticação e rede globalmente.
+
 import axios from "axios";
 import { BASE_URL } from "./apiPaths";
 

@@ -1,3 +1,6 @@
+// Este arquivo define o esquema (Schema) do Mongoose para o modelo de Despesa no banco de dados.
+// Ele especifica os campos e seus tipos para as transações de despesas.
+
 const mongoose = require("mongoose");
 
 const ExpenseSchema = new mongoose.Schema({

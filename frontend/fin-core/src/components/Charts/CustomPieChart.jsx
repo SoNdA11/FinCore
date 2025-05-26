@@ -1,3 +1,6 @@
+// Este componente React renderiza um gráfico de pizza personalizável usando a biblioteca Recharts.
+// É utilizado para mostrar a distribuição de valores, como o saldo total em relação a rendas e despesas.
+
 import React from "react";
 import CustomTooltip from "./CustomTooltip";
 import CustomLegend from "./CustomLegend";
@@ -19,7 +22,6 @@ const CustomPieChart = ({
     colors,
     showTextAnchor,
 }) => {
-
 
     const renderCenterText = ({ cx, cy }) => {
 

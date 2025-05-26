@@ -1,3 +1,6 @@
+// Este componente React fornece uma visão geral das despesas do usuário,
+// exibindo um gráfico de linha para acompanhar os hábitos de gasto ao longo do tempo.
+
 import React, { useEffect, useState } from 'react'
 import { LuPlus } from 'react-icons/lu'
 import { prepareExpenseLineChartData } from '../../utils/helper';
@@ -13,8 +16,6 @@ const ExpenseOverview = ({ transactions, onExpenseIncome }) => {
 
         return () => { };
     }, [transactions]);
-
-
 
     return <div className="card">
         <div className="flex items-center justify-between">

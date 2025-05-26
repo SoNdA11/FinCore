@@ -1,3 +1,6 @@
+// Este componente React exibe uma lista das transações financeiras mais recentes do usuário,
+// combinando tanto rendas quanto despesas, para uma visão geral no dashboard.
+
 import React from "react";
 import { LuArrowRight } from "react-icons/lu";
 import moment from "moment";

@@ -1,3 +1,6 @@
+// Este componente de layout React fornece uma estrutura visual comum
+// para as páginas de autenticação (Login e Cadastro), incluindo elementos de design.
+
 import React from "react";
 import CARD_3 from "../../assets/images/card3.png";
 

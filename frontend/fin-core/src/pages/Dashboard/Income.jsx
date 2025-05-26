@@ -1,3 +1,6 @@
+// Este componente React exibe a página principal de gerenciamento de rendas do dashboard.
+// Ele permite ao usuário visualizar, adicionar, excluir e baixar seus registros de renda.
+
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../components/layouts/DashboardLayout";
 import IncomeOverview from "../../components/Income/IncomeOverview";

@@ -1,3 +1,6 @@
+// Este componente React fornece uma visão geral das rendas do usuário,
+// exibindo um gráfico de barras para acompanhar os ganhos ao longo do tempo.
+
 import React, { useState, useEffect } from 'react';
 import { LuPlus } from "react-icons/lu";
 import CustomBarChart from '../Charts/CustomBarChart';

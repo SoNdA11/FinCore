@@ -1,4 +1,8 @@
+// Este arquivo define as rotas da API para gerenciar as despesas do usuário,
+// incluindo adicionar, obter, excluir e fazer download, todas protegidas por autenticação.
+
 const express = require("express");
+
 const {
     addExpense,
     getAllExpense,

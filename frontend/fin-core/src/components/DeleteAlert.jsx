@@ -1,3 +1,6 @@
+// Este componente React exibe um modal de alerta para confirmar operações de exclusão,
+// garantindo que o usuário realmente deseja prosseguir com a ação.
+
 import React from 'react';
 
 const DeleteAlert = ({ content, onDelete }) => {

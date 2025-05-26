@@ -1,3 +1,6 @@
+// Este componente React fornece um formulário para que o usuário possa adicionar
+// novas transações de despesas, incluindo categoria, valor, data e um ícone.
+
 import React, { useState } from 'react';
 import Input from "../Inputs/Input";
 import EmojiPickerPopup from "../EmojiPickerPopup";

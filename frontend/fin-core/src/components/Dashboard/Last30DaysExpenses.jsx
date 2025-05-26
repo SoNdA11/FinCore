@@ -1,3 +1,6 @@
+// Este componente React exibe um gráfico de barras que representa as despesas do usuário
+// nos últimos 30 dias, ajudando a visualizar padrões de gastos.
+
 import React, { useState, useEffect } from 'react';
 import { prepareExpenseBarChartData } from '../../utils/helper';
 import CustomBarChart from '../Charts/CustomBarChart';

@@ -1,3 +1,7 @@
+// Este é o componente principal do aplicativo React. Ele configura as rotas de navegação
+// usando React Router Dom e envolve a aplicação com o UserProvider para gerenciar
+// o estado global do usuário.
+
 import React from "react"
 
 import {

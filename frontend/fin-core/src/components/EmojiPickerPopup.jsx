@@ -1,3 +1,6 @@
+// Este componente React renderiza um seletor de emojis, permitindo que o usuário
+// escolha um ícone para associar a rendas ou despesas, melhorando a categorização visual.
+
 import React, { useState } from 'react';
 import EmojiPicker from "emoji-picker-react";
 import { LuImage, LuX } from "react-icons/lu"; 

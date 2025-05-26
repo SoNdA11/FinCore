@@ -1,3 +1,6 @@
+// Este componente React exibe um gráfico de pizza que representa as rendas do usuário
+// nos últimos 60 dias, oferecendo uma visão da composição dos ganhos.
+
 import React, { useState, useEffect } from 'react';
 import CustomPieChart from '../Charts/CustomPieChart';
 

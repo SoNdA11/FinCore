@@ -1,3 +1,6 @@
+// Este componente React renderiza uma legenda personalizada para ser usada com gráficos,
+// exibindo os itens e suas cores correspondentes.
+
 import React from 'react'
 
 const CustomLegend = ({ payload }) => {

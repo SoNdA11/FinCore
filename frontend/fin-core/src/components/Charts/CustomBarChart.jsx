@@ -1,3 +1,6 @@
+// Este componente React renderiza um gráfico de barras personalizável usando a biblioteca Recharts.
+// Ele é usado para visualizar dados de despesas ou rendas ao longo do tempo.
+
 import React from 'react'
 import {
     BarChart,
@@ -31,7 +34,6 @@ const CustomBarChart = ({ data }) => {
         }
         return null;
     };
-
 
     return (
         <div className="bg-white mt-6">

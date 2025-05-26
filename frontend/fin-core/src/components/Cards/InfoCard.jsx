@@ -1,3 +1,6 @@
+// Este componente React reutilizável exibe informações resumidas em um formato de cartão,
+// geralmente usado para mostrar saldo total, renda total ou despesas totais no dashboard.
+
 import React from 'react';
 
 const InfoCard = ({ icon, label, value, color }) => {

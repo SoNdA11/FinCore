@@ -1,3 +1,6 @@
+// Este arquivo contém a lógica de controle para operações de autenticação de usuários,
+// incluindo registro, login e obtenção de informações do usuário, utilizando JWT para autenticação.
+
 const User = require('../models/User')
 const jwt = require("jsonwebtoken");
 

@@ -1,5 +1,5 @@
-// VERSÃO COM BUG DAS HORAS - MAS TA ORGANIZADO
-
+// Este componente React exibe os detalhes de uma transação financeira,
+// seja uma renda ou uma despesa, incluindo o título, ícone, data e valor.
 
 import React from 'react';
 import moment from 'moment';

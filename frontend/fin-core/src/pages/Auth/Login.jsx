@@ -1,3 +1,6 @@
+// Este componente React implementa a página de login do usuário,
+// permitindo que eles insiram suas credenciais para acessar o aplicativo.
+
 import React, { useContext, useState } from 'react'
 import AuthLayout from '../../components/layouts/AuthLayout'
 import { useNavigate, Link } from 'react-router-dom';
@@ -16,7 +19,6 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    // Tratar o login após o envio do formulário
     const handleLogin = async (e) => {
         e.preventDefault();
 

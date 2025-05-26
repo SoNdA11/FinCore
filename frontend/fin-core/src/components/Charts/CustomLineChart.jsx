@@ -1,3 +1,6 @@
+// Este componente React renderiza um gráfico de linha personalizável usando a biblioteca Recharts.
+// É frequentemente utilizado para visualizar tendências de despesas ao longo do tempo.
+
 import React from 'react';
 import {
     XAxis,

@@ -1,3 +1,6 @@
+// Este componente React exibe a página principal de gerenciamento de despesas do dashboard.
+// Ele permite ao usuário visualizar, adicionar, excluir e baixar seus registros de despesas.
+
 import React, { useEffect, useState } from "react"
 import { useUserAuth } from "../../hooks/useUserAuth"
 import DashboardLayout from "../../components/layouts/DashboardLayout";
@@ -22,7 +25,6 @@ const Expense = () => {
     });
 
     const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false)
-
 
     // Get All Expense Details
     const fetchExpenseDetails = async () => {
@@ -84,8 +86,6 @@ const Expense = () => {
         };
     };
 
-
-
     // Delete Expense
     const deleteExpense = async (id) => {
         try {
@@ -127,8 +127,6 @@ const Expense = () => {
         }
     };
 
-
-
     useEffect(() => {
         fetchExpenseDetails();
         return () => { };
@@ -153,7 +151,6 @@ const Expense = () => {
                         onDownload={handleDownloadExpenseDetails}
                     />
 
-
                 </div>
 
                 <Modal
@@ -174,7 +171,6 @@ const Expense = () => {
                         onDelete={() => deleteExpense(openDeleteAlert.data)}
                     />
                 </Modal>
-
 
             </div>
         </DashboardLayout>
