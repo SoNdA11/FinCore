@@ -1,9 +1,6 @@
 const xlsx = require('xlsx');
 const Income = require("../models/Income");
 
-// VERSÃO COM BUG DAS HORAS - MAS TA ORGANIZADO
-
-
 // Add Income Source
 exports.addIncome = async (req, res) => {
     const userId = req.user?.id;

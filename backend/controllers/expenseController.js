@@ -1,8 +1,6 @@
 const xlsx = require('xlsx');
 const Expense = require("../models/Expense");
 
-// VERSÃO COM BUG DAS HORAS - MAS TA ORGANIZADO
-
 // Add Expense Source
 exports.addExpense = async (req, res) => {
     const userId = req.user?.id;
