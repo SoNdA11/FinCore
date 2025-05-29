@@ -48,27 +48,31 @@ const Expense = () => {
 
     // Handle Add Expense
     const handleAddExpense = async (expense) => {
+        const { description, category, amount, date, icon } = expense;
 
-        const { category, amount, date, icon } = expense;
+        if (!description.trim()) { 
+            toast.error("A descrição é obrigatória");
+            return;
+        }
 
-        // Validation Checks
-        if (!category.trim()) {
-            toast.error("Category is required");
+        if (!category) { 
+            toast.error("A categoria é obrigatória");
             return;
         }
 
         if (!amount || isNaN(amount) || Number(amount) <= 0) {
-            toast.error("Amount should be a valid number greater than 0.");
+            toast.error("O valor deve ser um número válido maior que 0.");
             return;
         }
 
         if (!date) {
-            toast.error("Date is required.");
+            toast.error("A data é obrigatória.");
             return;
         }
 
         try {
             await axiosInstance.post(API_PATHS.EXPENSE.ADD_EXPENSE, {
+                description, 
                 category,
                 amount,
                 date,
@@ -83,6 +87,7 @@ const Expense = () => {
                 "Error adding expense:",
                 error.response?.data.message || error.message
             );
+            toast.error(error.response?.data.message || "Erro ao adicionar despesa.");
         };
     };
 
@@ -99,6 +104,7 @@ const Expense = () => {
                 "Error deleting expense: ",
                 error.response?.data?.message || error.message
             );
+            toast.error(error.response?.data.message || "Erro ao excluir despesa.");
         }
     };
 
@@ -123,7 +129,7 @@ const Expense = () => {
             window.URL.revokeObjectURL(url);
         } catch (error) {
             console.error("Error downloading expense details:", error);
-            toast.error("Failed to dowload expense details. Please try again.")
+            toast.error("Falha ao baixar detalhes da despesa. Por favor, tente novamente.")
         }
     };
 
@@ -136,7 +142,7 @@ const Expense = () => {
         <DashboardLayout activeMenu="Expense">
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="">
+                    <div className="mb-6"> 
                         <ExpenseOverview
                             transactions={expenseData}
                             onExpenseIncome={() => setOpenAddExpenseModal(true)}

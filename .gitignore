@@ -5,4 +5,4 @@ uploads/
 npm-debug.log*
 yarn-debug.log*
 .eslintcache
-.vscode/ # Configurações do VS Code específicas do usuário/workspace
+

@@ -72,7 +72,7 @@ const Home = () => {
                         icon={<LuWalletMinimal />}
                         label="Renda Total"
                         value={addThousandsSeparator(dashboardData?.totalIncome || 0)}
-                        color="bg-orange-500"
+                        color="bg-green-600"
                     />
 
                     <InfoCard
@@ -106,7 +106,7 @@ const Home = () => {
                     />
 
                     <RecentIncomeWithChart
-                        data={dashboardData?.last60DaysIncome?.transactions?.slice(0, 4) || []}
+                        data={dashboardData?.last60DaysIncome?.transactions || []}
                         totalIncome={dashboardData?.totalIncome || 0}
                     />
 

@@ -1,17 +1,15 @@
-// Este componente React fornece uma visão geral das rendas do usuário,
-// exibindo um gráfico de barras para acompanhar os ganhos ao longo do tempo.
-
+// sonda11/fincore/FinCore-77506652eaa3d784901685ffec0e6b4ce8f1d784/frontend/fin-core/src/components/Income/IncomeOverview.jsx
 import React, { useState, useEffect } from 'react';
 import { LuPlus } from "react-icons/lu";
 import CustomBarChart from '../Charts/CustomBarChart';
 import { prepareIncomeBarChartData } from '../../utils/helper';
 
 const IncomeOverview = ({ transactions, onAddIncome }) => {
-    const [chartData, setDashboardData] = useState([]);
+    const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
         const result = prepareIncomeBarChartData(transactions);
-        setDashboardData(result); 
+        setChartData(result);
     }, [transactions]);
 
     return (
@@ -31,7 +29,7 @@ const IncomeOverview = ({ transactions, onAddIncome }) => {
             </div>
 
             <div className="mt-10">
-                <CustomBarChart data={chartData} />
+                <CustomBarChart data={chartData} xAxisDataKey="displayLabel" />
             </div>
         </div>
     );

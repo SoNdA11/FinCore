@@ -9,9 +9,9 @@ exports.addIncome = async (req, res) => {
     const userId = req.user?.id;
 
     try {
-        const { icon, source, amount, date } = req.body;
+        const { icon, source, amount, date, description } = req.body;
 
-        if (!source || !amount || !date) {
+        if (!description || !source || !amount || !date) {
             return res.status(400).json({ message: "Todos os campos são obrigatórios" });
         }
 
@@ -20,7 +20,8 @@ exports.addIncome = async (req, res) => {
             icon,
             source,
             amount,
-            date: new Date(date), 
+            date: new Date(date),
+            description 
         });
 
         await newIncome.save();
@@ -59,11 +60,11 @@ exports.downloadIncomeExcel = async (req, res) => {
     try {
         const income = await Income.find({ userId }).sort({ date: -1 });
 
-        // Preparar os dados para exportação
         const data = income.map(item => ({
             Fonte: item.source,
+            Descrição: item.description, 
             Valor: item.amount,
-            Data: item.date.toISOString().split('T')[0], 
+            Data: item.date.toISOString().split('T')[0],
         }));
 
         const wb = xlsx.utils.book_new();
@@ -74,7 +75,11 @@ exports.downloadIncomeExcel = async (req, res) => {
         const filePath = "income_details.xlsx";
         xlsx.writeFile(wb, filePath);
 
-        res.download(filePath);
+        res.download(filePath, (err) => {
+            if (err) {
+                console.error("Erro ao enviar o arquivo para download:", err);
+            }
+        });
     } catch (error) {
         console.error("Erro ao gerar Excel:", error);
         res.status(500).json({ message: "Erro no servidor", error: error.message });

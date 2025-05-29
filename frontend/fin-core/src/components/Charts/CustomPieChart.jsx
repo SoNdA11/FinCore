@@ -31,7 +31,6 @@ const CustomPieChart = ({
 
         return (
             <g>
-                {/* Primeiro texto: o rótulo (ex: "Total Balance") */}
                 <text
                     x={cx}
                     y={cy - 10}
@@ -41,8 +40,6 @@ const CustomPieChart = ({
                 >
                     {label}
                 </text>
-
-                {/* Segundo texto: o valor total (ex: "$18,300") */}
                 <text
                     x={cx}
                     y={cy + 15}

@@ -10,20 +10,20 @@ const ExpenseTransactions = ({ transactions, onSeeMore }) => {
     return (
         <div className="card">
             <div className="flex items-center justify-between ">
-                <h5 className="text-lg">Despesas</h5>
+                <h5 className="text-lg">Despesas Recentes</h5>
                 <button className="card-btn" onClick={onSeeMore}>
                     Ver Todas <LuArrowRight className="text-base" />
                 </button>
             </div>
 
-
             <div className="mt-6">
                 {transactions?.slice(0, 4)?.map((expense) => (
                     <TransactionInfoCard
                         key={expense._id}
-                        title={expense.category}
+                        title={expense.description} 
+                        categoryOrSource={expense.category} 
                         icon={expense.icon}
-                        date={moment(expense.date).format("Do MMM YYYY")}
+                        date={expense.date} 
                         amount={expense.amount}
                         type="expense"
                         hideDeleteBtn

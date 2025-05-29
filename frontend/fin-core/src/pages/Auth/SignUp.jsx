@@ -81,8 +81,7 @@ const SignUp = () => {
 
         // Cadastro Chamada da API
         try {
-            // Upload image if present
-            if (profilePicFile) { // Use profilePicFile aqui
+            if (profilePicFile) { 
                 const imgUploadRes = await uploadImage(profilePicFile);
                 profileImageUrl = imgUploadRes.imageUrl || "";
             }
@@ -119,7 +118,6 @@ const SignUp = () => {
                 </p>
 
                 <form onSubmit={handleSignUp}>
-                    {/* Ajustado: passando `onImageSelect` para o ProfilePhotoSelector */}
                     <ProfilePhotoSelector onImageSelect={setProfilePicFile} />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

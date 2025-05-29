@@ -6,7 +6,30 @@ const mongoose = require("mongoose");
 const ExpenseSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     icon: { type: String },
-    category: { type: String, required: true }, // Exemplo: Comida, Assinaturas
+    description: {
+        type: String,
+        required: [true, 'A descrição é obrigatória'], 
+        trim: true 
+    },
+    category: {
+        type: String,
+        required: true,
+        enum: [
+            'Alimentação',
+            'Transporte',
+            'Moradia',
+            'Entretenimento',
+            'Saúde',
+            'Educação',
+            'Compras',
+            'Serviços',
+            'Contas',
+            'Viagem',
+            'Lazer',
+            'Outros'
+        ],
+        default: 'Outros'
+    },
     amount: { type: Number, required: true },
     date: { type: Date, default: Date.now },
 

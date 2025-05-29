@@ -2,7 +2,7 @@
 // seja uma renda ou uma despesa, incluindo o título, ícone, data e valor.
 
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment'; 
 import {
     LuUtensils,
     LuTrendingUp,
@@ -12,8 +12,9 @@ import {
 
 const TransactionInfoCard = ({
     title,
+    categoryOrSource,
     icon,
-    date,
+    date, 
     amount,
     type,
     hideDeleteBtn,
@@ -21,6 +22,8 @@ const TransactionInfoCard = ({
 }) => {
 
     const getAmountStyles = () => type === "income" ? "bg-green-50 text-green-500" : "bg-red-50 text-red-500";
+
+    const formattedDate = moment.utc(date).format("Do MMM YY"); 
 
     return (
         <div className="group relative flex items-center gap-4 mt-2 p-3 rounded-lg hover:bg-gray-100/60">
@@ -35,7 +38,10 @@ const TransactionInfoCard = ({
             <div className="flex-1 flex items-center justify-between">
                 <div>
                     <h6 className="text-sm text-gray-700 font-medium">{title}</h6>
-                    <span className="text-xs text-gray-500 mt-1">{date}</span>
+                    {categoryOrSource && (
+                        <p className="text-xs text-gray-500">{categoryOrSource}</p>
+                    )}
+                    <span className="text-xs text-gray-500 mt-1">{formattedDate}</span>
                 </div>
 
                 <div className="flex items-center gap-2">

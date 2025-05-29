@@ -48,27 +48,32 @@ const Income = () => {
 
     // Handle Add Income
     const handleAddIncome = async (income) => {
+        // MODIFICAÇÃO: Adicionado 'description'
+        const { description, source, amount, date, icon } = income;
 
-        const { source, amount, date, icon } = income;
+        if (!description.trim()) { 
+            toast.error("A descrição é obrigatória");
+            return;
+        }
 
-        // Validation Checks
-        if (!source.trim()) {
-            toast.error("Source is required");
+        if (!source) { 
+            toast.error("A fonte de renda é obrigatória");
             return;
         }
 
         if (!amount || isNaN(amount) || Number(amount) <= 0) {
-            toast.error("Amount should be a valid number greater than 0.");
+            toast.error("O valor deve ser um número válido maior que 0.");
             return;
         }
 
         if (!date) {
-            toast.error("Date is required.");
+            toast.error("A data é obrigatória.");
             return;
         }
 
         try {
             await axiosInstance.post(API_PATHS.INCOME.ADD_INCOME, {
+                description, 
                 source,
                 amount,
                 date,
@@ -76,16 +81,16 @@ const Income = () => {
             });
 
             setOpenAddIncomeModal(false);
-            toast.success("Income added successfully");
+            toast.success("Renda adicionada com sucesso");
             fetchIncomeDetails();
         } catch (error) {
             console.error(
                 "Error adding income:",
                 error.response?.data.message || error.message
             );
+            toast.error(error.response?.data.message || "Erro ao adicionar renda.");
         };
     };
-
 
     // Delete Income
     const deleteIncome = async (id) => {
@@ -93,13 +98,14 @@ const Income = () => {
             await axiosInstance.delete(API_PATHS.INCOME.DELETE_INCOME(id));
 
             setOpenDeleteAlert({ show: false, data: null });
-            toast.success("Income details deleted successfully");
+            toast.success("Detalhes da renda excluídos com sucesso");
             fetchIncomeDetails();
         } catch (error) {
             console.error(
                 "Error deleting income: ",
                 error.response?.data?.message || error.message
             );
+            toast.error(error.response?.data.message || "Erro ao excluir renda.");
         }
     };
 
@@ -137,7 +143,7 @@ const Income = () => {
         <DashboardLayout activeMenu="Income">
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="">
+                    <div className="mb-6"> 
                         <IncomeOverview
                             transactions={incomeData}
                             onAddIncome={() => setOpenAddIncomeModal(true)}

@@ -3,25 +3,44 @@
 
 import React, { useState, useEffect } from 'react';
 import CustomPieChart from '../Charts/CustomPieChart';
+import { addThousandsSeparator } from '../../utils/helper';
 
-const COLORS = ["#875cf5", "#FA2C37", "#FF6900", "#4F39F6"]
+const COLORS = ["#875cf5", "#FA2C37", "#FF6900", "#4F39F6", "#33C7FF", "#FFDA33", "#FF7F50", "#DA70D6"]; 
 
 const RecentIncomeWithChart = ({ data, totalIncome }) => {
 
     const [chartData, setChartData] = useState([]);
 
+    const [totalIncomeLast60Days, setTotalIncomeLast60Days] = useState(0);
+
     const prepareChartData = () => {
-        const dataArr = data?.map((item) => ({
-            name: item?.source,
-            amount: item?.amount,
+        if (!data || data.length === 0) {
+            setChartData([]);
+            setTotalIncomeLast60Days(0);
+            return;
+        }
+
+        const groupedData = data.reduce((acc, item) => {
+            const sourceName = item?.source || "Desconhecida"; 
+            if (!acc[sourceName]) {
+                acc[sourceName] = { name: sourceName, amount: 0 };
+            }
+            acc[sourceName].amount += (item?.amount || 0);
+            return acc;
+        }, {});
+
+        const dataArr = Object.values(groupedData).map(item => ({
+            ...item,
+            amount: parseFloat(item.amount.toFixed(2))
         }));
 
-        setChartData(dataArr);
-    };
+        const currentTotalLast60Days = dataArr.reduce((sum, item) => sum + item.amount, 0);
 
+        setChartData(dataArr);
+        setTotalIncomeLast60Days(parseFloat(currentTotalLast60Days.toFixed(2)));
+    };
     useEffect(() => {
         prepareChartData();
-        return () => {};
     }, [data]);
 
     return (
@@ -32,8 +51,8 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
 
             <CustomPieChart
                 data={chartData}
-                label="Renda Total"
-                totalAmount={`$${totalIncome}`}
+                label="Renda (60d)" 
+                totalAmount={`$${addThousandsSeparator(totalIncomeLast60Days)}`} 
                 showTextAnchor
                 colors={COLORS}
             />
