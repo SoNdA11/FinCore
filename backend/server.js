@@ -11,14 +11,13 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const app = express();
 
 // Middleware para tratar o CORS
-const corsOptions = {
-    origin: process.env.CLIENT_URL, // Usa diretamente a variável de ambiente
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Adiciona OPTIONS explicitamente
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true // Adicionar para consistência, embora para JWT simples não seja crucial para o preflight
-};
-
-app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: process.env.CLIENT_URL || "*",
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        allowedHeaders: ["Content-Type", "Authorization"]
+    })
+);
 
 app.use(express.json());
 
@@ -33,5 +32,3 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-module.exports = app;
