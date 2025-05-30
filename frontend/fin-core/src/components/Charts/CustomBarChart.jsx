@@ -63,7 +63,7 @@ const CustomBarChart = ({ data, xAxisDataKey = "categoryName" }) => {
                         dataKey={xAxisDataKey} 
                         tick={xAxisTickProps}
                         stroke="#ccc"
-                        interval={0} 
+                        interval="preserveStartEnd"
                     />
                     <YAxis 
                         tick={{ fontSize: 10, fill: "#555" }} 
