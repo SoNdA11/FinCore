@@ -60,7 +60,7 @@ const Login = () => {
             {/* Não precisa mais do div com lg:w-[70%] etc., o AuthLayout controla o painel */}
             {/* Aplicando a classe auth-form-panel que criamos no index.css */}
             <div className="auth-form-panel"> 
-                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Bem-vindo(a) de volta!</h3>
+                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Seja Bem-vindo(a)!</h3>
                 <p className="text-sm text-gray-500 mb-8">
                     Preencha seus dados para fazer login e controlar suas finanças.
                 </p>
