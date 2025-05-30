@@ -5,9 +5,9 @@
 // Em desenvolvimento, você pode ter um arquivo .env local com VITE_API_BASE_URL=http://localhost:8000
 // Em produção (Vercel), você configurará VITE_API_BASE_URL para a URL do seu backend.
 
-//export const BASE_URL = "http://localhost:8000";
+export const BASE_URL = "http://localhost:8000";
 
-export const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"; // Fallback para localhost
+//export const BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000"; // Fallback para localhost
 
 export const API_PATHS = {
     AUTH: {
