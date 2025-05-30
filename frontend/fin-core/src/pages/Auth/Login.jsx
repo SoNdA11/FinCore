@@ -1,5 +1,3 @@
-// frontend/fin-core/src/pages/Auth/Login.jsx
-
 import React, { useContext, useState } from 'react';
 import AuthLayout from '../../components/layouts/AuthLayout';
 import { useNavigate, Link } from 'react-router-dom';
@@ -8,8 +6,6 @@ import { validateEmail } from '../../utils/helper';
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from '../../utils/apiPaths';
 import { UserContext } from '../../context/UserContext';
-// Importe ícones se for usar nos inputs
-// import { LuMail, LuLock } from "react-icons/lu";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -21,7 +17,6 @@ const Login = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // ... (sua lógica de handleLogin permanece a mesma)
         if (!validateEmail(email)) {
             setError("Por favor, informe um e-mail válido.");
             return;
@@ -57,8 +52,6 @@ const Login = () => {
 
     return (
         <AuthLayout>
-            {/* Não precisa mais do div com lg:w-[70%] etc., o AuthLayout controla o painel */}
-            {/* Aplicando a classe auth-form-panel que criamos no index.css */}
             <div className="auth-form-panel"> 
                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">Seja Bem-vindo(a)!</h3>
                 <p className="text-sm text-gray-500 mb-8">
@@ -66,14 +59,12 @@ const Login = () => {
                 </p>
 
                 <form onSubmit={handleLogin}>
-                    {/* Se você for adicionar ícones aos inputs, precisaria modificar o componente Input ou encapsulá-lo */}
                     <Input
                         value={email}
                         onChange={({ target }) => setEmail(target.value)}
                         label="Endereço de E-mail"
                         placeholder="seuemail@exemplo.com"
                         type="text"
-                        // icon={<LuMail />} // Exemplo se o componente Input suportar
                     />
 
                     <Input
@@ -82,7 +73,6 @@ const Login = () => {
                         label="Senha"
                         placeholder="Mínimo de 8 caracteres"
                         type="password"
-                        // icon={<LuLock />} // Exemplo se o componente Input suportar
                     />
 
                     {error && <p className="text-red-500 text-xs mt-1 mb-3 text-center">{error}</p>}

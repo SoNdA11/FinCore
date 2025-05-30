@@ -1,5 +1,3 @@
-/* frontend/fin-core/src/index.css */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
 
@@ -17,12 +15,11 @@
     }
 
     body {
-        background-color: #f7f7fc; /* Um tom de cinza muito claro, levemente azulado/roxo */
+        background-color: #f7f7fc; 
         overflow-x: hidden;
     }
 }
 
-/* Estilo do Input Modernizado */
 .input-box {
     @apply w-full flex items-center gap-3 text-sm text-gray-700 bg-white rounded-lg px-4 py-3 mb-4 mt-2 border border-slate-300 outline-none transition-all duration-300 shadow-sm;
 }
@@ -35,20 +32,16 @@
     @apply border-primary ring-2 ring-purple-300 shadow-md;
 }
 
-/* Estilo do Botão Primário Refinado */
 .btn-primary {
     @apply w-full text-sm font-semibold text-white bg-primary shadow-lg shadow-purple-600/30 p-3 rounded-lg my-2 transition-all duration-300 ease-in-out;
-    @apply hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5; /* Efeito de hover mais pronunciado */
-    @apply active:bg-purple-700 active:shadow-inner; /* Efeito ao clicar */
+    @apply hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5; 
+    @apply active:bg-purple-700 active:shadow-inner; 
 }
 
-/* Estilo do Card (para o painel do formulário) */
 .auth-form-panel {
-    @apply bg-white p-8 md:p-12 rounded-xl shadow-2xl; /* Sombra mais pronunciada para o painel */
+    @apply bg-white p-8 md:p-12 rounded-xl shadow-2xl; 
 }
 
-
-/* Mantendo seus estilos originais, caso ainda sejam usados em outros lugares */
 .card {
     @apply bg-white p-6 rounded-2xl shadow-md shadow-gray-100 border border-gray-200/50;
 }

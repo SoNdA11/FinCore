@@ -4,7 +4,6 @@
 const xlsx = require('xlsx');
 const Income = require("../models/Income");
 
-// Add Income Source
 exports.addIncome = async (req, res) => {
     const userId = req.user?.id;
 
@@ -32,7 +31,6 @@ exports.addIncome = async (req, res) => {
     }
 };
 
-// Get All Income Source
 exports.getAllIncome = async (req, res) => {
     const userId = req.user.id;
     try {
@@ -43,7 +41,6 @@ exports.getAllIncome = async (req, res) => {
     }
 };
 
-// Delete Income Source
 exports.deleteIncome = async (req, res) => {
     try {
         await Income.findByIdAndDelete(req.params.id);
@@ -53,7 +50,6 @@ exports.deleteIncome = async (req, res) => {
     }
 }
 
-// Download Excel
 exports.downloadIncomeExcel = async (req, res) => {
     const userId = req.user.id;
 

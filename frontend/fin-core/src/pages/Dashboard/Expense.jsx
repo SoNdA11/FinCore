@@ -26,7 +26,6 @@ const Expense = () => {
 
     const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false)
 
-    // Get All Expense Details
     const fetchExpenseDetails = async () => {
         if (loading) return;
 
@@ -46,7 +45,6 @@ const Expense = () => {
         }
     };
 
-    // Handle Add Expense
     const handleAddExpense = async (expense) => {
         const { description, category, amount, date, icon } = expense;
 
@@ -91,7 +89,6 @@ const Expense = () => {
         };
     };
 
-    // Delete Expense
     const deleteExpense = async (id) => {
         try {
             await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
@@ -108,7 +105,6 @@ const Expense = () => {
         }
     };
 
-    // handle download expense details
     const handleDownloadExpenseDetails = async () => {
         try {
             const response = await axiosInstance.get(
@@ -118,7 +114,6 @@ const Expense = () => {
                 }
             );
 
-            // Create a URL for the blob
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement("a");
             link.href = url;

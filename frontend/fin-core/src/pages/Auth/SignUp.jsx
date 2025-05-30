@@ -86,7 +86,6 @@ const SignUp = () => {
 
     return (
         <AuthLayout>
-            {/* Aplicando a classe auth-form-panel que criamos no index.css */}
             <div className="auth-form-panel">
                 <h3 className="text-2xl font-semibold text-gray-800 mb-2">Criar uma conta</h3>
                 <p className="text-sm text-gray-500 mb-8">
@@ -94,25 +93,14 @@ const SignUp = () => {
                 </p>
 
                 <form onSubmit={handleSignUp} className="space-y-3">
-                    {/* O ProfilePhotoSelector já tem seu próprio estilo,
-                        mas podemos garantir que o espaçamento ao redor dele esteja bom.
-                        Adicionei um `flex justify-center mb-6` ao redor dele no componente original,
-                        o que deve funcionar bem aqui.
-                    */}
-                    <ProfilePhotoSelector onImageSelect={setProfilePicFile} />
 
-                    {/* A div com grid para os inputs já está no seu código original.
-                        A classe `input-box` aplicada pelo componente Input já foi estilizada.
-                    */}
-                    {/* Removida a div de grid aqui para aplicar o space-y-3 no form e simplificar.
-                        O componente Input já cria sua própria div com label e input-box.
-                    */}
+                    <ProfilePhotoSelector onImageSelect={setProfilePicFile} />
 
                     <Input
                         value={fullName}
                         onChange={({ target }) => setFullName(target.value)}
                         label="Nome"
-                        placeholder="Seu nome" // Ajustado placeholder
+                        placeholder="Seu nome"
                         type="text"
                     />
 
@@ -120,7 +108,7 @@ const SignUp = () => {
                         value={email}
                         onChange={({ target }) => setEmail(target.value)}
                         label="Endereço de E-mail"
-                        placeholder="seuemail@exemplo.com" // Ajustado placeholder
+                        placeholder="seuemail@exemplo.com"
                         type="text"
                     />
 
@@ -128,14 +116,13 @@ const SignUp = () => {
                         value={password}
                         onChange={({ target }) => setPassword(target.value)}
                         label="Senha"
-                        placeholder="Mínimo de 8 caracteres, forte" // Ajustado placeholder
+                        placeholder="Mínimo de 8 caracteres, forte"
                         type="password"
                     />
 
-
                     {error && <p className="text-red-500 text-xs pt-1 pb-2 text-center">{error}</p>}
 
-                    <button type="submit" className="btn-primary w-full mt-4"> {/* Garante w-full se não estiver no Input */}
+                    <button type="submit" className="btn-primary w-full mt-4">
                         Cadastrar-se
                     </button>
 

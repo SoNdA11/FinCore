@@ -50,13 +50,12 @@ const CustomBarChart = ({ data, xAxisDataKey = "categoryName" }) => {
         return index % 2 === 0 ? "#875cf5" : "#cfbefb";
     };
 
-    // Configuração dos ticks do eixo X com rotação e ajuste de dy
     const xAxisTickProps = {
         fontSize: 10,
         fill: "#555",
-        angle: -45,       // Rotaciona o texto em -45 graus
-        textAnchor: "end", // Alinha o final do texto rotacionado ao ponto do tick
-        dy: 5             // Pequeno ajuste vertical para baixo
+        angle: -45,       
+        textAnchor: "end", 
+        dy: 5             
     };
 
 
@@ -69,7 +68,7 @@ const CustomBarChart = ({ data, xAxisDataKey = "categoryName" }) => {
                         top: 5,
                         right: 20,
                         left: 0,
-                        bottom: 70, // Aumente a margem inferior para acomodar os rótulos rotacionados
+                        bottom: 70,
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
@@ -77,8 +76,8 @@ const CustomBarChart = ({ data, xAxisDataKey = "categoryName" }) => {
                         dataKey={xAxisDataKey}
                         tick={xAxisTickProps}
                         stroke="#ccc"
-                        interval={0} // Mantém todos os rótulos (ou suas versões truncadas)
-                        tickFormatter={(value) => truncateTick(value, 8)} // Aplica o truncamento
+                        interval={0} 
+                        tickFormatter={(value) => truncateTick(value, 8)} 
                     />
                     <YAxis
                         tick={{ fontSize: 10, fill: "#555" }}

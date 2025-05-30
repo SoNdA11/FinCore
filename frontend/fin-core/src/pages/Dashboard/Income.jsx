@@ -26,7 +26,6 @@ const Income = () => {
 
     const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false)
 
-    // Get All Income Details
     const fetchIncomeDetails = async () => {
         if (loading) return;
 
@@ -46,9 +45,7 @@ const Income = () => {
         }
     };
 
-    // Handle Add Income
     const handleAddIncome = async (income) => {
-        // MODIFICAÇÃO: Adicionado 'description'
         const { description, source, amount, date, icon } = income;
 
         if (!description.trim()) {
@@ -92,7 +89,6 @@ const Income = () => {
         };
     };
 
-    // Delete Income
     const deleteIncome = async (id) => {
         try {
             await axiosInstance.delete(API_PATHS.INCOME.DELETE_INCOME(id));
@@ -109,7 +105,6 @@ const Income = () => {
         }
     };
 
-    // Handle Download Income Details
     const handleDownloadIncomeDetails = async () => {
         try {
             const response = await axiosInstance.get(
@@ -117,9 +112,8 @@ const Income = () => {
                 {
                     responseType: "blob",
                 }
-            );
+            )
 
-            // Create a URL for the blob
             const url = window.URL.createObjectURL(new Blob([response.data]));
             const link = document.createElement("a");
             link.href = url;

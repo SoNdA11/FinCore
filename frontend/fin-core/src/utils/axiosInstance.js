@@ -14,7 +14,6 @@ const axiosInstance = axios.create({
     },
 });
 
-// Interceptador de pedidos HTTP (requisição)
 axiosInstance.interceptors.request.use(
     (config) => {
         const accessToken = localStorage.getItem("token");
