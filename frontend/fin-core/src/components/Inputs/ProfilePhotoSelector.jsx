@@ -1,7 +1,7 @@
 // Este componente React permite ao usuário selecionar, pré-visualizar,
 // fazer upload e remover sua imagem de perfil.
 
-import React, { useRef, useState, useEffect } from 'react'; 
+import React, { useRef, useState, useEffect } from 'react';
 import { LuUser, LuUpload, LuTrash } from "react-icons/lu";
 
 const ProfilePhotoSelector = ({ existingImageUrl, onImageSelect }) => {

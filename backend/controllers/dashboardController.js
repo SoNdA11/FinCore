@@ -25,7 +25,7 @@ exports.getDashboardData = async (req, res) => {
         const finalTotalIncome = parseFloat(currentTotalIncome.toFixed(2));
         const finalTotalExpenses = parseFloat(currentTotalExpenses.toFixed(2));
 
-        const endDate = new Date(); 
+        const endDate = new Date();
 
         // Definição da janela para rendas (últimos 60 dias)
         const startDateIncome = new Date();
@@ -39,15 +39,15 @@ exports.getDashboardData = async (req, res) => {
         const incomeLast60Days = last60DaysIncomeTransactions.reduce(
             (sum, txn) => sum + txn.amount, 0
         );
-        
+
         const startDateExpense = new Date();
         startDateExpense.setDate(endDate.getDate() - 30);
-        
+
         const last30DaysExpenseTransactions = await Expense.find({
             userId: userObjectId,
             date: { $gte: startDateExpense, $lte: endDate },
         }).sort({ date: -1 });
-        
+
         const expensesLast30Days = last30DaysExpenseTransactions.reduce(
             (sum, txn) => sum + txn.amount, 0
         );

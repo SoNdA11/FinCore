@@ -21,7 +21,7 @@ exports.addIncome = async (req, res) => {
             source,
             amount,
             date: new Date(date),
-            description 
+            description
         });
 
         await newIncome.save();
@@ -62,7 +62,7 @@ exports.downloadIncomeExcel = async (req, res) => {
 
         const data = income.map(item => ({
             Fonte: item.source,
-            Descrição: item.description, 
+            Descrição: item.description,
             Valor: item.amount,
             Data: item.date.toISOString().split('T')[0],
         }));

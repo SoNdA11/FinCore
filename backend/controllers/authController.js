@@ -79,6 +79,6 @@ exports.getUserInfo = async (req, res) => {
     } catch (err) {
         res
             .status(500)
-            .json({ message: "Erro ao cadastrar o usuário", error: err.message});
+            .json({ message: "Erro ao cadastrar o usuário", error: err.message });
     }
 };

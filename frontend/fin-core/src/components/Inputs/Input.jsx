@@ -24,7 +24,6 @@ const Input = ({ value, onChange, placeholder, label, type }) => {
                     value={value}
                     onChange={(e) => onChange(e)}
                 />
-
                 {type === "password" && (
                     <>
                         {showPassword ? (

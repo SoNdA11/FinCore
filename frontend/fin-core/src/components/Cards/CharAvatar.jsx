@@ -2,7 +2,7 @@
 // Ele é usado para representar o usuário visualmente.
 
 import React from "react";
-import { getInitials } from "../../utils/helper"; 
+import { getInitials } from "../../utils/helper";
 
 const CharAvatar = ({ fullName, width = 'w-12', height = 'h-12', style = '' }) => {
     return (

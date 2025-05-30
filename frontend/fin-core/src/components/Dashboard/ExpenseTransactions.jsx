@@ -20,10 +20,10 @@ const ExpenseTransactions = ({ transactions, onSeeMore }) => {
                 {transactions?.slice(0, 4)?.map((expense) => (
                     <TransactionInfoCard
                         key={expense._id}
-                        title={expense.description} 
-                        categoryOrSource={expense.category} 
+                        title={expense.description}
+                        categoryOrSource={expense.category}
                         icon={expense.icon}
-                        date={expense.date} 
+                        date={expense.date}
                         amount={expense.amount}
                         type="expense"
                         hideDeleteBtn

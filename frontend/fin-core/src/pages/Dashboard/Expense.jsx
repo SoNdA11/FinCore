@@ -50,12 +50,12 @@ const Expense = () => {
     const handleAddExpense = async (expense) => {
         const { description, category, amount, date, icon } = expense;
 
-        if (!description.trim()) { 
+        if (!description.trim()) {
             toast.error("A descrição é obrigatória");
             return;
         }
 
-        if (!category) { 
+        if (!category) {
             toast.error("A categoria é obrigatória");
             return;
         }
@@ -72,7 +72,7 @@ const Expense = () => {
 
         try {
             await axiosInstance.post(API_PATHS.EXPENSE.ADD_EXPENSE, {
-                description, 
+                description,
                 category,
                 amount,
                 date,
@@ -142,7 +142,7 @@ const Expense = () => {
         <DashboardLayout activeMenu="Expense">
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="mb-6"> 
+                    <div className="mb-6">
                         <ExpenseOverview
                             transactions={expenseData}
                             onExpenseIncome={() => setOpenAddExpenseModal(true)}

@@ -51,12 +51,12 @@ const Income = () => {
         // MODIFICAÇÃO: Adicionado 'description'
         const { description, source, amount, date, icon } = income;
 
-        if (!description.trim()) { 
+        if (!description.trim()) {
             toast.error("A descrição é obrigatória");
             return;
         }
 
-        if (!source) { 
+        if (!source) {
             toast.error("A fonte de renda é obrigatória");
             return;
         }
@@ -73,7 +73,7 @@ const Income = () => {
 
         try {
             await axiosInstance.post(API_PATHS.INCOME.ADD_INCOME, {
-                description, 
+                description,
                 source,
                 amount,
                 date,
@@ -143,7 +143,7 @@ const Income = () => {
         <DashboardLayout activeMenu="Income">
             <div className="my-5 mx-auto">
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="mb-6"> 
+                    <div className="mb-6">
                         <IncomeOverview
                             transactions={incomeData}
                             onAddIncome={() => setOpenAddIncomeModal(true)}

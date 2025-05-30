@@ -21,7 +21,7 @@ exports.addExpense = async (req, res) => {
             category,
             amount: Number(amount),
             date: new Date(date),
-            description, 
+            description,
         });
 
         await newExpense.save();
@@ -61,8 +61,8 @@ exports.downloadExpenseExcel = async (req, res) => {
         const expense = await Expense.find({ userId }).sort({ date: -1 });
 
         const data = expense.map(item => ({
-            Categoria: item.category, 
-            Descrição: item.description, 
+            Categoria: item.category,
+            Descrição: item.description,
             Valor: item.amount,
             Data: item.date.toISOString().split('T')[0],
         }));

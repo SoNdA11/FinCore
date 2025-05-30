@@ -8,7 +8,7 @@ const IncomeSchema = new mongoose.Schema({
     icon: { type: String },
     description: {
         type: String,
-        required: [true, 'A descrição é obrigatória'], 
+        required: [true, 'A descrição é obrigatória'],
         trim: true
     },
     source: {

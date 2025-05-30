@@ -22,7 +22,7 @@ const EXPENSE_CATEGORIES = [
 
 const AddExpenseForm = ({ onAddExpense }) => {
     const [expense, setExpense] = useState({
-        description: "", 
+        description: "",
         category: EXPENSE_CATEGORIES[0],
         amount: "",
         date: "",

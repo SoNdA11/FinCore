@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import CustomPieChart from '../Charts/CustomPieChart';
 import { addThousandsSeparator } from '../../utils/helper';
 
-const COLORS = ["#875cf5", "#FA2C37", "#FF6900", "#4F39F6", "#33C7FF", "#FFDA33", "#FF7F50", "#DA70D6"]; 
+const COLORS = ["#875cf5", "#FA2C37", "#FF6900", "#4F39F6", "#33C7FF", "#FFDA33", "#FF7F50", "#DA70D6"];
 
 const RecentIncomeWithChart = ({ data, totalIncome }) => {
 
@@ -21,7 +21,7 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
         }
 
         const groupedData = data.reduce((acc, item) => {
-            const sourceName = item?.source || "Desconhecida"; 
+            const sourceName = item?.source || "Desconhecida";
             if (!acc[sourceName]) {
                 acc[sourceName] = { name: sourceName, amount: 0 };
             }
@@ -51,8 +51,8 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
 
             <CustomPieChart
                 data={chartData}
-                label="Renda (60d)" 
-                totalAmount={`$${addThousandsSeparator(totalIncomeLast60Days)}`} 
+                label="Renda (60d)"
+                totalAmount={`$${addThousandsSeparator(totalIncomeLast60Days)}`}
                 showTextAnchor
                 colors={COLORS}
             />

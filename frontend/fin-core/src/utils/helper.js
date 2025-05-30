@@ -22,7 +22,7 @@ export const getInitials = (name) => {
 };
 
 export const addThousandsSeparator = (num) => {
-  if (num == null) return ""; 
+  if (num == null) return "";
 
   const numAsNumber = Number(num);
   if (isNaN(numAsNumber)) return "";
@@ -43,7 +43,7 @@ export const prepareExpenseBarChartData = (data = []) => {
   }
 
   const groupedData = data.reduce((acc, item) => {
-    const categoryName = item?.category || "Outros"; 
+    const categoryName = item?.category || "Outros";
     if (!acc[categoryName]) {
       acc[categoryName] = { categoryName: categoryName, amount: 0 };
     }
@@ -53,7 +53,7 @@ export const prepareExpenseBarChartData = (data = []) => {
 
   const chartData = Object.values(groupedData).map(item => ({
     ...item,
-    amount: parseFloat(item.amount.toFixed(2)) 
+    amount: parseFloat(item.amount.toFixed(2))
   }));
 
   return chartData;
@@ -65,13 +65,13 @@ export const prepareIncomeBarChartData = (data = []) => {
   const chartData = sortedData.map((item) => {
     const descriptionForLabel = item?.description || item?.source || 'N/A';
     const dateFormatted = moment.utc(item?.date).format('Do MMM YY');
-    
+
     return {
-      displayLabel: descriptionForLabel, 
+      displayLabel: descriptionForLabel,
       amount: item?.amount,
-      source: item?.source,          
-      description: item?.description, 
-      formattedDate: dateFormatted,  
+      source: item?.source,
+      description: item?.description,
+      formattedDate: dateFormatted,
     };
   });
 
@@ -86,12 +86,12 @@ export const prepareExpenseLineChartData = (data = []) => {
   const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
 
   const chartData = sortedData.map((item) => {
-    const dateFormatted = moment.utc(item?.date).format("DD MMM YY"); 
+    const dateFormatted = moment.utc(item?.date).format("DD MMM YY");
     return {
-      displayDate: dateFormatted, 
+      displayDate: dateFormatted,
       amount: parseFloat((item?.amount || 0).toFixed(2)),
       category: item?.category || "N/A",
-      description: item?.description || "", 
+      description: item?.description || "",
     };
   });
   return chartData;

@@ -20,10 +20,10 @@ const IncomeList = ({ transactions, onDelete, onDownload }) => {
                 {transactions?.map((income) => (
                     <TransactionInfoCard
                         key={income._id}
-                        title={income.description} 
-                        categoryOrSource={income.source} 
+                        title={income.description}
+                        categoryOrSource={income.source}
                         icon={income.icon}
-                        date={income.date} 
+                        date={income.date}
                         amount={income.amount}
                         type="income"
                         onDelete={() => onDelete(income._id)}

@@ -8,11 +8,11 @@ import {
     Area,
     AreaChart
 } from "recharts";
-import { addThousandsSeparator } from '../../utils/helper'; 
+import { addThousandsSeparator } from '../../utils/helper';
 
 const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
-        const dataPoint = payload[0].payload; 
+        const dataPoint = payload[0].payload;
         return (
             <div className="bg-white shadow-lg rounded-lg p-3 border border-gray-200 min-w-[200px]">
                 <p className="text-xs text-gray-500 mb-1">

@@ -81,7 +81,7 @@ const SignUp = () => {
 
         // Cadastro Chamada da API
         try {
-            if (profilePicFile) { 
+            if (profilePicFile) {
                 const imgUploadRes = await uploadImage(profilePicFile);
                 profileImageUrl = imgUploadRes.imageUrl || "";
             }

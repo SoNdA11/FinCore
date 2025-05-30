@@ -5,10 +5,10 @@
 const express = require("express");
 const { protect } = require("../middleware/authMiddleware");
 
-const { 
+const {
     registerUser,
     loginUser,
-    getUserInfo 
+    getUserInfo
 } = require("../controllers/authController");
 
 const upload = require("../middleware/uploadMiddleware");
@@ -23,9 +23,9 @@ router.post("/upload-image", upload.single("image"), (req, res) => {
     if (!req.file) {
         return res.status(400).json({ message: "Nenhum arquivo enviado" });
     }
-    
+
     const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-    
+
     res.status(200).json({ imageUrl });
 });
 
