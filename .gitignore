@@ -1,8 +1,58 @@
-node_modules/
-.env
+
+
 uploads/
 *.xlsx
 npm-debug.log*
 yarn-debug.log*
 .eslintcache
 
+# =================================================================
+# Arquivo .gitignore para o projeto FinCore
+# =================================================================
+
+# Arquivos de Ambiente (MUITO IMPORTANTE)
+# Nunca envie dados sensíveis (chaves de API, senhas de banco) para o repositório.
+# É uma boa prática criar um arquivo .env.example com as variáveis, mas sem os valores.
+.env
+/backend/.env
+/frontend/fin-core/.env
+
+# Dependências
+# Ignora as pastas de pacotes do Node.js em todo o projeto.
+node_modules/
+/backend/node_modules/
+/frontend/fin-core/node_modules/
+
+# Arquivos de Build e Saída
+# Ignora a pasta de build do Vite.
+/frontend/fin-core/dist/
+
+# Arquivos Gerados pelo Backend
+# Ignora os arquivos Excel gerados para download.
+*.xlsx
+
+# Uploads de Usuário
+# Ignora a pasta onde as imagens de perfil são salvas.
+backend/uploads/
+
+# Logs
+# Ignora logs de debug e de erros.
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Caches
+# Ignora o cache do ESLint para melhorar a performance local.
+.eslintcache
+
+# Arquivos de Sistema Operacional
+# Ignora arquivos gerados pelo macOS, Windows e Linux.
+.DS_Store
+Thumbs.db
+._*
+
+# Arquivos de Editor/IDE
+# Ignora configurações específicas do ambiente de desenvolvimento de cada pessoa.
+.idea/
+.vscode/
+*.swp
