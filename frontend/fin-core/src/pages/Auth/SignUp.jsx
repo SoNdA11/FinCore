@@ -86,48 +86,62 @@ const SignUp = () => {
 
     return (
         <AuthLayout>
-            <div className="lg:w-[100%] h-auto md:h-full mt-10 md:mt-o flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-black">Criar uma conta</h3>
-                <p className="text-xs text-slate-700 mt-[5px] mb-6">
+            {/* Aplicando a classe auth-form-panel que criamos no index.css */}
+            <div className="auth-form-panel">
+                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Criar uma conta</h3>
+                <p className="text-sm text-gray-500 mb-8">
                     Junte-se a nós hoje mesmo inserindo seus dados abaixo.
                 </p>
-                <form onSubmit={handleSignUp}>
+
+                <form onSubmit={handleSignUp} className="space-y-3">
+                    {/* O ProfilePhotoSelector já tem seu próprio estilo,
+                        mas podemos garantir que o espaçamento ao redor dele esteja bom.
+                        Adicionei um `flex justify-center mb-6` ao redor dele no componente original,
+                        o que deve funcionar bem aqui.
+                    */}
                     <ProfilePhotoSelector onImageSelect={setProfilePicFile} />
 
-                    {/* Alteração aqui! O div agora não é mais um grid */}
-                    <div className="flex flex-col gap-4">
-                        <Input
-                            value={fullName}
-                            onChange={({ target }) => setFullName(target.value)}
-                            label="Nome"
-                            placeholder="Paulo"
-                            type="text"
-                        />
-                        <Input
-                            value={email}
-                            onChange={({ target }) => setEmail(target.value)}
-                            label="Endereço de E-mail"
-                            placeholder="paulo@exemplo.com"
-                            type="text"
-                        />
-                        <Input
-                            value={password}
-                            onChange={({ target }) => setPassword(target.value)}
-                            label="Senha"
-                            placeholder="Mínimo de 8 caracteres, com maiúscula, minúscula, número e especial"
-                            type="password"
-                        />
-                    </div>
+                    {/* A div com grid para os inputs já está no seu código original.
+                        A classe `input-box` aplicada pelo componente Input já foi estilizada.
+                    */}
+                    {/* Removida a div de grid aqui para aplicar o space-y-3 no form e simplificar.
+                        O componente Input já cria sua própria div com label e input-box.
+                    */}
 
-                    {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
+                    <Input
+                        value={fullName}
+                        onChange={({ target }) => setFullName(target.value)}
+                        label="Nome"
+                        placeholder="Seu nome" // Ajustado placeholder
+                        type="text"
+                    />
 
-                    <button type="submit" className="btn-primary">
+                    <Input
+                        value={email}
+                        onChange={({ target }) => setEmail(target.value)}
+                        label="Endereço de E-mail"
+                        placeholder="seuemail@exemplo.com" // Ajustado placeholder
+                        type="text"
+                    />
+
+                    <Input
+                        value={password}
+                        onChange={({ target }) => setPassword(target.value)}
+                        label="Senha"
+                        placeholder="Mínimo de 8 caracteres, forte" // Ajustado placeholder
+                        type="password"
+                    />
+
+
+                    {error && <p className="text-red-500 text-xs pt-1 pb-2 text-center">{error}</p>}
+
+                    <button type="submit" className="btn-primary w-full mt-4"> {/* Garante w-full se não estiver no Input */}
                         Cadastrar-se
                     </button>
 
-                    <p className="text-[13px] text-slate-800 mt-3">
+                    <p className="text-sm text-gray-600 mt-8 text-center">
                         Já tem uma conta?{" "}
-                        <Link className="font medium text-primary underline" to="/login">
+                        <Link className="font-semibold text-primary hover:text-primary-dark hover:underline" to="/login">
                             Login
                         </Link>
                     </p>

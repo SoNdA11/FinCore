@@ -1,5 +1,4 @@
-/* Este arquivo contém os estilos CSS globais do projeto e configurações personalizadas
-/* do Tailwind CSS, definindo a paleta de cores, fontes e classes utilitárias comuns. */
+/* frontend/fin-core/src/index.css */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
@@ -7,7 +6,9 @@
 @theme {
     --font-display: "Poppins", "sans-serif";
     --breakpoint-3xl: 1920px;
-    --color-primary: #875cf5
+    --color-primary: #875cf5; /* Seu roxo primário */
+    --color-primary-dark: #7349d1; /* Um tom mais escuro para hover/active */
+    --color-secondary: #a17cf0; /* Um roxo mais claro ou outra cor complementar */
 }
 
 @layer base {
@@ -16,19 +17,38 @@
     }
 
     body {
-        background-color: #fcfbfc;
+        background-color: #f7f7fc; /* Um tom de cinza muito claro, levemente azulado/roxo */
         overflow-x: hidden;
     }
 }
 
+/* Estilo do Input Modernizado */
 .input-box {
-    @apply w-full flex justify-between gap-3 text-sm text-black bg-slate-100 rounded px-4 py-3 mb-4 mt-3 border border-slate-200 outline-none;
+    @apply w-full flex items-center gap-3 text-sm text-gray-700 bg-white rounded-lg px-4 py-3 mb-4 mt-2 border border-slate-300 outline-none transition-all duration-300 shadow-sm;
 }
 
+.input-box input {
+    @apply w-full bg-transparent outline-none placeholder-gray-400;
+}
+
+.input-box:focus-within {
+    @apply border-primary ring-2 ring-purple-300 shadow-md;
+}
+
+/* Estilo do Botão Primário Refinado */
 .btn-primary {
-    @apply w-full text-sm font-medium text-white bg-violet-500 shadow-lg shadow-purple-600/5 p-[10px] rounded-md my-1 hover:bg-purple-600/15 hover:text-purple-600;
+    @apply w-full text-sm font-semibold text-white bg-primary shadow-lg shadow-purple-600/30 p-3 rounded-lg my-2 transition-all duration-300 ease-in-out;
+    @apply hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5; /* Efeito de hover mais pronunciado */
+    @apply active:bg-purple-700 active:shadow-inner; /* Efeito ao clicar */
 }
 
+/* Estilo do Card (para o painel do formulário) */
+.auth-form-panel {
+    @apply bg-white p-8 md:p-12 rounded-xl shadow-2xl; /* Sombra mais pronunciada para o painel */
+}
+
+
+/* Mantendo seus estilos originais, caso ainda sejam usados em outros lugares */
 .card {
     @apply bg-white p-6 rounded-2xl shadow-md shadow-gray-100 border border-gray-200/50;
 }
@@ -42,5 +62,5 @@
 }
 
 .add-btn-fill {
-    @apply text-white bg-primary
+    @apply text-white bg-primary;
 }

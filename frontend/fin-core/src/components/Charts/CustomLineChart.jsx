@@ -52,7 +52,7 @@ const CustomLineChart = ({ data }) => {
                     margin={{
                         top: 10,
                         right: 20,
-                        left: 0,
+                        left: 20,
                         bottom: 70,
                     }}
                 >

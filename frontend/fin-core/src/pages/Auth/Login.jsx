@@ -1,14 +1,15 @@
-// Este componente React implementa a página de login do usuário,
-// permitindo que eles insiram suas credenciais para acessar o aplicativo.
+// frontend/fin-core/src/pages/Auth/Login.jsx
 
-import React, { useContext, useState } from 'react'
-import AuthLayout from '../../components/layouts/AuthLayout'
+import React, { useContext, useState } from 'react';
+import AuthLayout from '../../components/layouts/AuthLayout';
 import { useNavigate, Link } from 'react-router-dom';
-import Input from "../../components/Inputs/Input"
+import Input from "../../components/Inputs/Input";
 import { validateEmail } from '../../utils/helper';
 import axiosInstance from "../../utils/axiosInstance";
 import { API_PATHS } from '../../utils/apiPaths';
 import { UserContext } from '../../context/UserContext';
+// Importe ícones se for usar nos inputs
+// import { LuMail, LuLock } from "react-icons/lu";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -16,38 +17,30 @@ const Login = () => {
     const [error, setError] = useState(null);
 
     const { updateUser } = useContext(UserContext);
-
     const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
-
+        // ... (sua lógica de handleLogin permanece a mesma)
         if (!validateEmail(email)) {
             setError("Por favor, informe um e-mail válido.");
             return;
         }
-
-        if (!password) { // Já existe
+        if (!password) {
             setError("Por favor, digite a senha.");
             return;
         }
-
         if (password.length < 8) {
-            setError("A senha deve ter no mínimo 8 caracteres."); 
+            setError("A senha deve ter no mínimo 8 caracteres.");
             return;
         }
-
         setError("");
-
-        // Login API Call
         try {
             const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
                 email,
                 password
             });
-
             const { token, user } = response.data;
-
             if (token) {
                 localStorage.setItem("token", token);
                 updateUser(user);
@@ -60,23 +53,27 @@ const Login = () => {
                 setError("Algo deu errado. Por favor, tente novamente.");
             }
         }
-    }
+    };
 
     return (
         <AuthLayout>
-            <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-black">Que bom ter você aqui!</h3>
-                <p className="text-xs text-state-700 mt-[5px] mb-6">
-                    Preencha seus dados para fazer login
+            {/* Não precisa mais do div com lg:w-[70%] etc., o AuthLayout controla o painel */}
+            {/* Aplicando a classe auth-form-panel que criamos no index.css */}
+            <div className="auth-form-panel"> 
+                <h3 className="text-2xl font-semibold text-gray-800 mb-2">Bem-vindo(a) de volta!</h3>
+                <p className="text-sm text-gray-500 mb-8">
+                    Preencha seus dados para fazer login e controlar suas finanças.
                 </p>
 
                 <form onSubmit={handleLogin}>
+                    {/* Se você for adicionar ícones aos inputs, precisaria modificar o componente Input ou encapsulá-lo */}
                     <Input
                         value={email}
                         onChange={({ target }) => setEmail(target.value)}
                         label="Endereço de E-mail"
-                        placeholder="paulo@exemplo.com"
+                        placeholder="seuemail@exemplo.com"
                         type="text"
+                        // icon={<LuMail />} // Exemplo se o componente Input suportar
                     />
 
                     <Input
@@ -85,24 +82,25 @@ const Login = () => {
                         label="Senha"
                         placeholder="Mínimo de 8 caracteres"
                         type="password"
+                        // icon={<LuLock />} // Exemplo se o componente Input suportar
                     />
 
-                    {error && <p className="text-red-500 text-xs pb-2.5">{error}</p>}
+                    {error && <p className="text-red-500 text-xs mt-1 mb-3 text-center">{error}</p>}
 
-                    <button type="submit" className="btn-primary">
+                    <button type="submit" className="btn-primary mt-4">
                         Entrar
                     </button>
 
-                    <p className="text-[13px] text-slate-800 mt-3">
+                    <p className="text-sm text-gray-600 mt-8 text-center">
                         Não tem uma conta?{" "}
-                        <Link className="font medium text-primary underline" to="/signup">
+                        <Link className="font-semibold text-primary hover:text-primary-dark hover:underline" to="/signup">
                             Cadastre-se
                         </Link>
                     </p>
                 </form>
             </div>
         </AuthLayout>
-    )
+    );
 };
 
-export default Login
+export default Login;
