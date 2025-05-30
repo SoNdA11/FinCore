@@ -12,8 +12,7 @@ const app = express();
 
 // Middleware para tratar o CORS
 const corsOptions = {
-    origin: "*",
-    //origin: process.env.CLIENT_URL, // Usa diretamente a variável de ambiente
+    origin: process.env.CLIENT_URL, // Usa diretamente a variável de ambiente
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Adiciona OPTIONS explicitamente
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true // Adicionar para consistência, embora para JWT simples não seja crucial para o preflight
