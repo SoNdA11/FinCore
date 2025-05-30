@@ -1,3 +1,5 @@
+console.log("[FINCORE_BACKEND] server.js - Top of file"); 
+
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
@@ -32,5 +34,8 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const PORT = process.env.PORT || 5000;
 //app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+console.log("[FINCORE_BACKEND] server.js - Before module.exports"); // Novo log
 
 module.exports = app; // Adicione esta linha para exportar o app
