@@ -1,7 +1,12 @@
 {
+  "version": 2,
   "rewrites": [
     {
-      "source": "/((?!api/|assets/).*)",
+      "source": "/api/v1/(.*)",
+      "destination": "https://fincore-backend-api.vercel.app/api/v1/$1"
+    },
+    {
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
